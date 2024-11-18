@@ -89,31 +89,27 @@ code,kbd,pre,samp {
 }
 
 button,input,optgroup,select,textarea {
-    color: inherit;
-    font: inherit;
-    margin: 0
+    cpadding: 10px 20px; background-color: #77aaff; color: #fff; border: none; cursor: pointer; border-radius: 5px
 }
 
 button {
-    overflow: visible
+    padding: 10px 20px; background-color: #77aaff; color: #fff; border: none; cursor: pointer; border-radius: 5px
 }
 
 button,select {
-    text-transform: none
+    padding: 10px 20px; background-color: #77aaff; color: #fff; border: none; cursor: pointer; border-radius: 5px
 }
 
 button,html input[type=button],input[type=reset],input[type=submit] {
-    -webkit-appearance: button;
-    cursor: pointer
+    padding: 10px 20px; background-color: #77aaff; color: #fff; border: none; cursor: pointer; border-radius: 5px
 }
 
 button[disabled],html input[disabled] {
-    cursor: default
+    padding: 10px 20px; background-color: #77aaff; color: #fff; border: none; cursor: pointer; border-radius: 5px
 }
 
 button::-moz-focus-inner,input::-moz-focus-inner {
-    border: 0;
-    padding: 0
+    padding: 10px 20px; background-color: #77aaff; color: #fff; border: none; cursor: pointer; border-radius: 5px
 }
 
 input[type=checkbox],input[type=radio] {
