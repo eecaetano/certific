@@ -6404,3 +6404,11 @@ body {
 .tudoMinusculo {
     text-transform: lowercase;
 }
+    #divAveriguacaoPendente {
+        background-color: #c3dff7;
+        padding: 10px;
+    }
+
+    .no-display {
+        display: none;
+    }
