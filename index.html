@@ -17,7 +17,8 @@
 <link type="text/css" rel="stylesheet" href="/css/versa.shared.css?time=1731901994">
 <link type="text/css" rel="stylesheet" href="/css/universa/documentos/documento-requerido/consultar-certificado-digital.css?time=1731901994">
     <style>
-        html {
+
+html {
     font-family: sans-serif;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%
@@ -109,30 +110,39 @@ code,kbd,pre,samp {
 
 button,input,optgroup,select,textarea {
     color: inherit;
+    padding: 10px 20px;
+    order-radius: 5px;
     font: inherit;
     margin: 0
 }
 
 button {
-    overflow: visible
+    overflow: visible;
+    order-radius: 5px;
+    padding: 10px 20px
 }
 
 button,select {
-    text-transform: none
+    text-transform: none;
+    padding: 10px 20px;
+    order-radius: 5px
 }
 
 button,html input[type=button],input[type=reset],input[type=submit] {
-    -webkit-appearance: button;
+    padding: 10px 20px;
+    order-radius: 5px;
+    webkit-appearance: button;
     cursor: pointer
 }
 
 button[disabled],html input[disabled] {
+    padding: 10px 20px;
+    order-radius: 5px;
     cursor: default
 }
 
 button::-moz-focus-inner,input::-moz-focus-inner {
-    border: 0;
-    padding: 0
+   padding: 10px 20px; background-color: #77aaff; color: #fff; border: none; cursor: pointer; border-radius: 5px
 }
 
 input[type=checkbox],input[type=radio] {
