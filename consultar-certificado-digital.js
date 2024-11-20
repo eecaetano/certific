@@ -36,12 +36,12 @@
 
             /** chama funcao que consulta documento */
             $('#btn-consultar').click(function () {
-                window.location.href = 'https://drive.google.com/file/d/1pl7wf-eAQmfGiHplBXit1sbwRhmP2Qgd/view?usp=sharing';
+                window.location.href = 'https://drive.google.com/file/d/1pl7wf-eAQmfGiHplBXit1sbwRhmP2Qgd/view?usp=drive_link';
             });
 
             /** Evento para efetuar o download do documento */
             $('#botao-documento-download').click(function () {
-                window.location.href = 'https://drive.google.com/file/d/1pl7wf-eAQmfGiHplBXit1sbwRhmP2Qgd/view?usp=sharing';
+                window.location.href = 'https://drive.google.com/file/d/1pl7wf-eAQmfGiHplBXit1sbwRhmP2Qgd/view?usp=drive_link';
             });
 
             $('#botao-solicitar-averiguar-documento').click(function () {
@@ -243,10 +243,4 @@
         }
 
         this.run = function (opts) {
-            this.setDefaults(opts);
-            this.setSteps();
-            //this.setValidations();
-        };
-    }
-
-    $.consultarCert
+            this.setDefaults
