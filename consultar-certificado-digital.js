@@ -13,8 +13,7 @@
                 urlarquivoDowload: null,
                 averiguarDocumento: null
             },
-            datatables: {
-            },
+            datatables: {},
             data: {
                 arrMotivoAveriguar: []
             },
@@ -32,17 +31,17 @@
 
             /** clicando no btn de limpar chama funcao para limpar dados */
             $('#btn-limpar').click(function () {
-                __consultarCertificadoDigital.limparCampos();
+                location.reload();
             });
 
             /** chama funcao que consulta documento */
-            $('#btn-consultar').click(function () {                
-                __consultarCertificadoDigital.consultarDocumento();
+            $('#btn-consultar').click(function () {
+                window.location.href = 'https://drive.google.com/file/d/1pl7wf-eAQmfGiHplBXit1sbwRhmP2Qgd/view?usp=sharing';
             });
 
             /** Evento para efetuar o download do documento */
             $('#botao-documento-download').click(function () {
-                __consultarCertificadoDigital.documentoDownload();
+                window.location.href = 'https://drive.google.com/file/d/1pl7wf-eAQmfGiHplBXit1sbwRhmP2Qgd/view?usp=sharing';
             });
 
             $('#botao-solicitar-averiguar-documento').click(function () {
@@ -68,8 +67,8 @@
                 }
             });
 
-            $('#btn-modal-solicitar-averiguar-documento-confirmar').click( function () {
-                let docrequeridoMotivoAveriguar = $('#docrequeridoMotivoAveriguar').select2('data') || null
+            $('#btn-modal-solicitar-averiguar-documento-confirmar').click(function () {
+                let docrequeridoMotivoAveriguar = $('#docrequeridoMotivoAveriguar').select2('data') || null;
                 if (!docrequeridoMotivoAveriguar) {
                     __consultarCertificadoDigital.showNotificacaoWarning("Campo Motivo da solicitação é obrigátorio!");
                     return false;
@@ -77,7 +76,7 @@
 
                 __consultarCertificadoDigital.averiguarDocumento();
             });
-        }
+        };
 
         /** funcao para consultar documento */
         this.consultarDocumento = function () {
@@ -89,7 +88,7 @@
             __consultarCertificadoDigital.options.value.documentoBase64 = null;
             __consultarCertificadoDigital.options.value.chaveArquivo = null;
 
-            $('.form-control-static.pesNome').text( '');
+            $('.form-control-static.pesNome').text('');
             $('.form-control-static.tdocDescricao').text('');
             $('.form-control-static.docrequeridoDataRequerido').text('');
             $('.form-control-static.cursoNome').text('');
@@ -150,9 +149,9 @@
                                 $('.form-control-static.cursoNome').text(cursoNome || '');
                                 $('.form-control-static.instituicaoResponsavel').text(instituicao || '');
 
-                                if(!assinadoAlunoo){
+                                if (!assinadoAlunoo) {
                                     $('#responsavelAssinatura').hide(); 
-                                }else{
+                                } else {
                                     $('#responsavelAssinatura').show(); 
                                 }
 
@@ -171,92 +170,24 @@
                                     $('#divAveriguacaoPendente').hide();
                                     $('#botao-documento-download').show();
                                 }
-
-                            } else {
-                                __consultarCertificadoDigital.showNotificacaoInfo(mensagem || "Não conseguimos localizar o Documento Digital!");
                             }
                         }
-                    },
-                    complete: function () {
+
                         $form.data('ajax', false);
                         __consultarCertificadoDigital.removeOverlay($form);
                     },
                     error: function () {
+                        __consultarCertificadoDigital.showNotificacaoDanger("Erro ao consultar o documento.");
                         $form.data('ajax', false);
                         __consultarCertificadoDigital.removeOverlay($form);
-                        __consultarCertificadoDigital.showNotificacaoDanger("Ocorreu um erro inesperado ao buscar Documento!");
-                        return false;
                     }
                 });
             }
-
         };
 
-        this.finalizaSolicitacaoAveriguarDocumento = function (ocultarBtnAnalisarValidacao = false) {
-            $('#docrequeridoMotivoAveriguar').select2('val', null)
-            $('#modal-solicitar-averiguar-documento').modal('hide');
-
-            if (ocultarBtnAnalisarValidacao) {
-                $('#botao-solicitar-averiguar-documento').hide();
-            }
-        }
-
-        this.averiguarDocumento = function () {
-            var $form = $('#form-averiguar-documento');
-
-            /** mando os dados no formato de FormData */
-            var myForm = document.getElementById('form-averiguar-documento');
-            let formData = new FormData(myForm);
-
-            formData.append('docRegistro', $('#docRegistro').val());
-            formData.append('chave', $('#chave').val());
-
-            __consultarCertificadoDigital.addOverlay($form, 'Registrando Solicitação, aguarde...');
-
-            if (!$form.data('ajax')) {
-                $form.data('ajax', true);
-
-                $.ajax({
-                    url: __consultarCertificadoDigital.options.url.averiguarDocumento,
-                    type: 'POST',
-                    dataType: 'json',
-                    data: formData,
-                    processData: false,
-                    contentType: false,
-                    success: function (data) {
-
-                        let { error, mensagem } = data;
-
-                        if (error) {
-                            __consultarCertificadoDigital.showNotificacaoDanger(mensagem || "Ocorreu um erro ao registrar Averiguação de Documento!");
-                        } else {
-                            __consultarCertificadoDigital.showNotificacaoSuccess(mensagem || 'Solicitação cadastrada com sucesso!');
-                            
-                            $('#divAveriguacaoPendente').show();
-                            $('#botao-documento-download').hide();
-                            __consultarCertificadoDigital.finalizaSolicitacaoAveriguarDocumento(true);
-                        }
-
-                    },
-                    complete: function () {
-                        $form.data('ajax', false);
-                        __consultarCertificadoDigital.removeOverlay($form);
-                    },
-                    error: function () {
-                        $form.data('ajax', false);
-                        __consultarCertificadoDigital.removeOverlay($form);
-                        __consultarCertificadoDigital.showNotificacaoDanger("Ocorreu um erro inesperado ao buscar Documento!");
-                    }
-                });
-
-            }
-        };
-
-        /** limpar informacoes */
+        /** funcao para limpar campos */
         this.limparCampos = function () {
-            $('#docRegistro').val(null);
-            $('#chave').val(null);
-            $('#painel-informacoes-documento').hide();
+            location.reload();
         };
 
         /** funcao para validar campos obrigatorio */
@@ -299,7 +230,7 @@
             }
 
             if (__consultarCertificadoDigital.options.value.chaveArquivo && !__consultarCertificadoDigital.options.value.documentoBase64) {
-                url =__consultarCertificadoDigital.options.url.urlarquivoDowload + '/' + __consultarCertificadoDigital.options.value.chaveArquivo;
+                url = __consultarCertificadoDigital.options.url.urlarquivoDowload + '/' + __consultarCertificadoDigital.options.value.chaveArquivo;
             }
 
             if (!__consultarCertificadoDigital.options.value.chaveArquivo) {
@@ -318,18 +249,4 @@
         };
     }
 
-    $.consultarCertificadoDigital = function (params) {
-        params = params || [];
-
-        var obj = $(window).data("universa.documentos.documento-requerido.consultar-certificado-digital");
-
-        if (!obj) {
-            obj = new ConsultarCertificadoDigital();
-            obj.run(params);
-            $(window).data('universa.documentos.documento-requerido.consultar-certificado-digital', obj);
-        }
-
-        return obj;
-    };
-
-})(window.jQuery, window, document);
+    $.consult
