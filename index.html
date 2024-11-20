@@ -10,12 +10,7 @@
     <!-- IMPORTANTE -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700">
-    <link rel="stylesheet" href="/smart-admin/css/bootstrap.min.css?time=1731901994">
-    <link rel="stylesheet" href="/smart-admin/css/font-awesome.min.css?time=1731901994">
-    <link rel="stylesheet" href="/smart-admin/css/smartadmin-production.min.css?time=1731901994">
-    <link rel="stylesheet" href="/smart-admin/css/smartadmin-skins.min.css?time=1731901994">
-    <link rel="stylesheet" href="/css/versa.shared.css?time=1731901994">
-    <link rel="stylesheet" href="/css/universa/documentos/documento-requerido/consultar-certificado-digital.css?time=1731901994">
+      <link rel="stylesheet" href="/requerido/consultar-certificado-digital.js">
 </head>
 <body>
     <br>
@@ -29,7 +24,7 @@
                 <div class="jarviswidget jarviswidget-color-darken">
                     <div class="widget-body">
                         <div class="col-sm-8 col-sm-offset-2 centralizar">
-                            <form action="#" method="post" novalidate="novalidate" id="form-consultar-certificado-digital" enctype="multipart/form-data">
+                            <form action="#" method="post" validate="validate" id="form-consultar-certificado-digital" enctype="multipart/form-data">
                                 <div class="panel panel-primary">
                                     <div class="panel-heading">
                                         <h3 class="panel-title text-center">
@@ -68,7 +63,7 @@
                                     </div>
 
                                     <div class="row item-center">
-                                        <button type="button" class="btn btn-primary" id="btn-consultar" onclick="window.location.href='https://drive.google.com/file/d/1pl7wf-eAQmfGiHplBXit1sbwRhmP2Qgd/view?usp=drive_link'">
+                                        <button type="button" class="btn btn-primary" id="btn-consultar">
                                             <i class="fa fa-search"></i>
                                             Validar
                                         </button>
@@ -129,6 +124,15 @@
             </div>
         </div>
     </section>
-       <script src="consultar-certificado-digital.js"></script>
+
+   <script src="/js/universa/documentos/documento-requerido/consultar-certificado-digital.js"></script>
+    <script>
+        $(document).ready(function () {
+            /** chama funcao que valida documento */
+            $('#btn-consultar').click(function () {
+                window.location.href = 'https://drive.google.com/file/d/1pl7wf-eAQmfGiHplBXit1sbwRhmP2Qgd/view?usp=drive_link';
+            });
+        });
+    </script>
 </body>
 </html>
