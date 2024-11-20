@@ -1,252 +1,181 @@
-(function ($, window, document) {
-    'use strict';
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <title>Documentos / Gestão de Documentos Requerido - IBRA - Universa</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- #FAVICONS -->
+    <link rel="shortcut icon" href="/img/icon.png" type="image/x-icon">
+    <link rel="icon" href="/img/icon.png" type="image/x-icon">
+    <!-- IMPORTANTE -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700">
+    <link type="text/css" rel="stylesheet" href="/smart-admin/css/bootstrap.min.css?time=1731901994">
+    <link type="text/css" rel="stylesheet" href="/smart-admin/css/font-awesome.min.css?time=1731901994">
+    <link type="text/css" rel="stylesheet" href="/smart-admin/css/smartadmin-production.min.css?time=1731901994">
+    <link type="text/css" rel="stylesheet" href="/smart-admin/css/smartadmin-skins.min.css?time=1731901994">
+    <link type="text/css" rel="stylesheet" href="/css/versa.shared.css?time=1731901994">
+    <link type="text/css" rel="stylesheet" href="/css/universa/documentos/documento-requerido/consultar-certificado-digital.css?time=1731901994">
+</head>
+<body>
+    <div id="imagem-fundo" style="background-image: url();"></div>
 
-    var ConsultarCertificadoDigital = function () {
-        VersaShared.call(this);
-        var __consultarCertificadoDigital = this;
+    <section id="widget-grid" class="">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="jarviswidget jarviswidget-color-darken">
+                    <div class="widget-body">
+                        <div class="col-sm-8 col-sm-offset-2 centralizar">
+                            <form action="#" method="post" novalidate="novalidate" id="form-consultar-certificado-digital" enctype="multipart/form-data">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title text-center">
+                                            <i class="fa fa-search"></i>
+                                            Validação de Documento Digital
+                                        </h3>
+                                    </div>
 
-        this.defaults = {
-            ajaxSubmit: 0,
-            listagem: 0,
-            url: {
-                consultarCertificadoDigital: null,
-                urlarquivoDowload: null,
-                averiguarDocumento: null
-            },
-            datatables: {},
-            data: {
-                arrMotivoAveriguar: []
-            },
-            value: {
-                documentoBase64: '',
-                chaveArquivo: '',
-                exibirBotaoInformarDocumentoNaoCoerente: 0,
-            },
-            formElement: '#form-consultar-certificado-digital',
-            validator: null
-        };
+                                    <br>
+                                    <br>
 
-        this.setSteps = function () {
-            $("#chave").inputmask({ showMaskOnHover: false, clearIncomplete: true, mask: ['########-########-########-########'] });
+                                    <div class="row item-center">
+                                        <div class="col-xs-8 col-sm-4">
+                                            <div class="form-group">
+                                                <label for="docRegistro">* Documento de Registro
+                                                    <a title="CPF ou Documento Estrangeiro">
+                                                        <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                                    </a>
+                                                </label>
+                                                <div class="form-group">
+                                                    <input type="text" name="docRegistro" id="docRegistro" class="form-control" value="299.413.308-32" placeholder="CPF ou Documento Estrangeiro">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
-            /** clicando no btn de limpar chama funcao para limpar dados */
-            $('#btn-limpar').click(function () {
-                location.reload();
-            });
+                                    <div class="row item-center">
+                                        <div class="col-xs-8 col-sm-4">
+                                            <div class="form-group">
+                                                <label for="chave">* CHAVE:</label>
+                                                <div class="form-group">
+                                                    <input type="text" name="chave" id="chave" class="form-control" value="E8281C7D-71FBE3FF-8C8F0B1A-0B713877" placeholder="chave">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
-            /** chama funcao que consulta documento */
-            $('#btn-consultar').click(function () {
-                window.location.href = 'https://drive.google.com/file/d/1pl7wf-eAQmfGiHplBXit1sbwRhmP2Qgd/view?usp=sharing';
-            });
+                                    <div class="row item-center">
+                                        <button type="button" class="btn btn-primary" id="btn-consultar" onclick="window.location.href='https://drive.google.com/file/d/1pl7wf-eAQmfGiHplBXit1sbwRhmP2Qgd/view?usp=sharing'">
+                                            <i class="fa fa-search"></i>
+                                            Validar
+                                        </button>
 
-            /** Evento para efetuar o download do documento */
-            $('#botao-documento-download').click(function () {
-                window.location.href = 'https://drive.google.com/file/d/1pl7wf-eAQmfGiHplBXit1sbwRhmP2Qgd/view?usp=sharing';
-            });
+                                        <button type="button" class="btn btn-secondary" id="btn-limpar" onclick="location.reload();">
+                                            Limpar
+                                        </button>
+                                    </div>
 
-            $('#botao-solicitar-averiguar-documento').click(function () {
-                $('#modal-solicitar-averiguar-documento').modal('show');
-            });
+                                    <br>
+                                    <br>
 
-            $('#btn-modal-solicitar-averiguar-documento-cancelar').click(function () {
-                __consultarCertificadoDigital.finalizaSolicitacaoAveriguarDocumento();
-            });
+                                    <div class="panel panel-default" style="margin: 10px; display: block;" id="painel-informacoes-documento">
+                                        <div class="panel-body">
+                                            <div class="row" id="row-informacoes-documento">
+                                                <div class="col-sm-12 col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="pesNome"><b>Titular do Documento:</b></label>
+                                                        <p class="form-control-static pesNome">Anderson Roberto de Oliveira</p>
+                                                    </div>
+                                                </div>
 
-            $('#painel-informacoes-documento').hide();
-            $('#botao-documento-download').hide();
-            $('#botao-solicitar-averiguar-documento').hide();
-            $('#divAveriguacaoPendente').hide();
+                                                <div class="col-sm-12 col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="tdocDescricao"><b>Tipo:</b></label>
+                                                        <p class="form-control-static tdocDescricao">DIPLOMA</p>
+                                                    </div>
+                                                </div>
 
-            $('#docrequeridoMotivoAveriguar').select2({
-                language: 'pt-BR',
-                allowClear: true,
-                data: function () {
-                    return {
-                        results: JSON.parse(__consultarCertificadoDigital.options.data.arrMotivoAveriguar) || []
-                    };
-                }
-            });
+                                                <div class="col-sm-12 col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="docrequeridoDataRequerido"><b>Data de Emissão:</b></label>
+                                                        <p class="form-control-static docrequeridoDataRequerido">06/12/2022 10:55</p>
+                                                    </div>
+                                                </div>
 
-            $('#btn-modal-solicitar-averiguar-documento-confirmar').click(function () {
-                let docrequeridoMotivoAveriguar = $('#docrequeridoMotivoAveriguar').select2('data') || null;
-                if (!docrequeridoMotivoAveriguar) {
-                    __consultarCertificadoDigital.showNotificacaoWarning("Campo Motivo da solicitação é obrigátorio!");
-                    return false;
-                }
+                                                <div class="col-sm-12 col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="cursoNome"><b>Curso:</b></label>
+                                                        <p class="form-control-static cursoNome">LICENCIATURA QUÍMICA</p>
+                                                    </div>
+                                                </div>
 
-                __consultarCertificadoDigital.averiguarDocumento();
-            });
-        };
+                                                <div class="col-sm-12 col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="instituicaoResponsavel"><b>Instituição Responsável:</b></label>
+                                                        <p class="form-control-static instituicaoResponsavel">CENTRO UNIVERSITÁRIO FAVENI - UNIFAVENI</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        /** funcao para consultar documento */
-        this.consultarDocumento = function () {
-            let tudoOK = __consultarCertificadoDigital.validarCampos();
+    <script src="/smart-admin/js/libs/jquery-3.6.0.min.js"></script>
+    <script src="/smart-admin/js/libs/jquery-ui.min.js"></script>
+    <script src="/smart-admin/js/app.config.js"></script>
+    <script src="/smart-admin/js/plugin/jquery-touch/jquery.ui.touch-punch.min.js"></script>
+    <script src="/smart-admin/js/bootstrap/bootstrap.min.js"></script>
+    <script src="/smart-admin/js/notification/SmartNotification.min.js"></script>
+    <script src="/smart-admin/js/smartwidgets/jarvis.widget.min.js"></script>
+    <script src="/smart-admin/js/plugin/easy-pie-chart/jquery.easy-pie-chart.min.js"></script>
+    <script src="/smart-admin/js/plugin/sparkline/jquery.sparkline.min.js"></script>
+    <script src="/smart-admin/js/plugin/jquery-validate/jquery.validate.min.js"></script>
+    <script src="/smart-admin/js/plugin/masked-input/jquery.maskedinput.min.js"></script>
+    <script src="/smart-admin/js/plugin/select2/select2.min.js"></script>
+    <script src="/smart-admin/js/plugin/bootstrap-slider/bootstrap-slider.min.js"></script>
+    <script src="/smart-admin/js/plugin/msie-fix/jquery.mb.browser.min.js"></script>
+    <script src="/smart-admin/js/plugin/fastclick/fastclick.min.js"></script>
+    <script src="/smart-admin/js/app.min.js"></script>
+    <script src="/js/versa.shared.js"></script>
+    <script src="/js/universa/documentos/documento-requerido/consultar-certificado-digital.js"></script>
+    <script>
+        (function ($, window, document) {
+            'use strict';
 
-            if (!tudoOK) {
-                return false;
-            }
-            __consultarCertificadoDigital.options.value.documentoBase64 = null;
-            __consultarCertificadoDigital.options.value.chaveArquivo = null;
+            var ConsultarCertificadoDigital = function () {
+                VersaShared.call(this);
+                var __consultarCertificadoDigital = this;
 
-            $('.form-control-static.pesNome').text('');
-            $('.form-control-static.tdocDescricao').text('');
-            $('.form-control-static.docrequeridoDataRequerido').text('');
-            $('.form-control-static.cursoNome').text('');
-            $('.form-control-static.instituicaoResponsavel').text('');
-            $('#painel-informacoes-documento').hide();
-
-            var $form = $(__consultarCertificadoDigital.options.formElement);
-
-            /** mando os dados no formato de FormData */
-            var myForm = document.getElementById('form-consultar-certificado-digital');
-            let formData = new FormData(myForm);
-
-            __consultarCertificadoDigital.addOverlay($form, 'Consultando Documento aguarde...');
-
-            if (!$form.data('ajax')) {
-                $form.data('ajax', true);
-
-                $.ajax({
-                    url: __consultarCertificadoDigital.options.url.consultarCertificadoDigital,
-                    type: 'POST',
-                    dataType: 'json',
-                    data: formData,
-                    processData: false,
-                    contentType: false,
-                    success: function (data) {
-                        let {
-                            error,
-                            mensagem,
-                            documentoBase64,
-                            chaveArquivo,
-                            pesNome,
-                            tdocDescricao,
-                            docrequeridoDataRequerido,
-                            cursoNome,
-                            instituicaoResponsavel,
-                            instituicao,
-                            assinaturaResponsavel,
-                            assinadoAlunoo,
-                            docrequeridoMotivoAveriguar
-                        } = data;
-                        $('#painel-informacoes-documento').hide();
-
-                        if (error) {
-                            __consultarCertificadoDigital.showNotificacaoDanger(mensagem || "Não conseguimos pesquisar o documento");
-                        } else {
-                            /** se existir base64 de documento em PDF */
-                            if ((documentoBase64 != undefined && documentoBase64 !== null) || (chaveArquivo != undefined && chaveArquivo !== null)) {
-                                $('#painel-informacoes-documento').show();
-
-                                __consultarCertificadoDigital.showNotificacaoSuccess(mensagem || "Documento encontrado com sucesso!");
-
-                                __consultarCertificadoDigital.options.value.documentoBase64 = documentoBase64;
-                                __consultarCertificadoDigital.options.value.chaveArquivo = chaveArquivo;
-
-                                $('.form-control-static.pesNome').text(pesNome || '');
-                                $('.form-control-static.tdocDescricao').text(tdocDescricao || '');
-                                $('.form-control-static.docrequeridoDataRequerido').text(__consultarCertificadoDigital.formatarDataHoraParaBR(docrequeridoDataRequerido) || '');
-                                $('.form-control-static.cursoNome').text(cursoNome || '');
-                                $('.form-control-static.instituicaoResponsavel').text(instituicao || '');
-
-                                if (!assinadoAlunoo) {
-                                    $('#responsavelAssinatura').hide(); 
-                                } else {
-                                    $('#responsavelAssinatura').show(); 
-                                }
-
-                                $('.form-control-static.assinaturaResponsavel').text(assinaturaResponsavel || '');
-                                
-                                if (parseInt(__consultarCertificadoDigital.options.value.exibirBotaoInformarDocumentoNaoCoerente) && !docrequeridoMotivoAveriguar && !assinadoAlunoo) {
-                                    $('#botao-solicitar-averiguar-documento').show();
-                                } else {
-                                    $('#botao-solicitar-averiguar-documento').hide();
-                                }
-
-                                if (docrequeridoMotivoAveriguar) {
-                                    $('#divAveriguacaoPendente').show();
-                                    $('#botao-documento-download').hide();
-                                } else {
-                                    $('#divAveriguacaoPendente').hide();
-                                    $('#botao-documento-download').show();
-                                }
-                            }
-                        }
-
-                        $form.data('ajax', false);
-                        __consultarCertificadoDigital.removeOverlay($form);
+                this.defaults = {
+                    ajaxSubmit: 0,
+                    listagem: 0,
+                    url: {
+                        consultarCertificadoDigital: null,
+                        urlarquivoDowload: null,
+                        averiguarDocumento: null
                     },
-                    error: function () {
-                        __consultarCertificadoDigital.showNotificacaoDanger("Erro ao consultar o documento.");
-                        $form.data('ajax', false);
-                        __consultarCertificadoDigital.removeOverlay($form);
-                    }
-                });
-            }
-        };
+                    datatables: {},
+                    data: {
+                        arrMotivoAveriguar: []
+                    },
+                    value: {
+                        documentoBase64: '',
+                        chaveArquivo: '',
+                        exibirBotaoInformarDocumentoNaoCoerente: 0,
+                    },
+                    formElement: '#form-consultar-certificado-digital',
+                    validator: null
+                };
 
-        /** funcao para limpar campos */
-        this.limparCampos = function () {
-            location.reload();
-        };
+                this.setSteps = function () {
+                    $("#chave").inputmask({ showMaskOnHover: false, clearIncomplete: true, mask: ['########-########-########-########'] });
 
-        /** funcao para validar campos obrigatorio */
-        this.validarCampos = function () {
-            let msg = "";
-
-            let docRegistro = $('#docRegistro').val();
-            let chave = $('#chave').val();
-
-            if (docRegistro.length == 0) {
-                msg = "Campo CPF é obrigatório!";
-            } else if (chave.length == 0) {
-                msg = "Campo Chave é obrigatório!";
-            }
-
-            if (msg !== "") {
-                __consultarCertificadoDigital.showNotificacaoWarning(msg);
-                return false;
-            }
-
-            return true;
-        }
-
-        /**
-         * Efetuar download do documento buscado
-         * @param documentoBase64
-         */
-
-        this.documentoDownload = function () {
-            if (__consultarCertificadoDigital.options.value.documentoBase64 == '' && !__consultarCertificadoDigital.options.value.chaveArquivo) {
-                __consultarCertificadoDigital.showNotificacaoInfo("Não conseguimos localizar o Documento Digital!");
-                return false;
-            }
-
-            let pdfData = '';
-            let url = '';
-
-            if (__consultarCertificadoDigital.options.value.documentoBase64) {
-                pdfData = __consultarCertificadoDigital.options.value.documentoBase64;
-            }
-
-            if (__consultarCertificadoDigital.options.value.chaveArquivo && !__consultarCertificadoDigital.options.value.documentoBase64) {
-                url = __consultarCertificadoDigital.options.url.urlarquivoDowload + '/' + __consultarCertificadoDigital.options.value.chaveArquivo;
-            }
-
-            if (!__consultarCertificadoDigital.options.value.chaveArquivo) {
-                $('#responsavelAssinatura').hide(); 
-            } else {
-                $('#responsavelAssinatura').show(); 
-            }
-
-            __consultarCertificadoDigital.downloadFile(pdfData, url, "application/pdf", "documento.pdf");
-        }
-
-        this.run = function (opts) {
-            this.setDefaults(opts);
-            this.setSteps();
-            //this.setValidations();
-        };
-    }
-
-    $.consult
+                    /** clicando no btn de limpar chama funcao para limpar dados */
+                    $('#btn-limpar').click(function () {
