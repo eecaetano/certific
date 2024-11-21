@@ -82,11 +82,156 @@
         </div>
         <br>
         <br>
-        <div class="panel panel-default" style="margin: 10px; display: block;" id="painel-informacoes-documento"></div>
-    </div>
-    <script src="validacao.js"></script>
+           <div class="panel panel-default" style="margin: 10px; display: block;" id="painel-informacoes-documento">
+                                    <div class="panel-body">
+                                        <div class="row" id="row-informacoes-documento">
 
-  </td></tr></table></div></div>
+                                            <div class="col-sm-12 col-md-6">
+                                                <div class="form-group">
+                                                    <label for="pesNome"><b>Titular do Documento:</b></label>
+                                                    <p class="form-control-static pesNome">Anderson Roberto de Oliveira</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-12 col-md-6">
+                                                <div class="form-group">
+                                                    <label for="tdocDescricao"><b>Tipo:</b></label>
+                                                    <p class="form-control-static tdocDescricao">DIPLOMA</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-12 col-md-6">
+                                                <div class="form-group">
+                                                    <label for="docrequeridoDataRequerido"><b>Data de
+                                                            Emissão:</b></label>
+                                                    <p class="form-control-static docrequeridoDataRequerido">06/12/2022 10:55</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-12 col-md-6">
+                                                <div class="form-group">
+                                                    <label for="cursoNome"><b>Curso:</b></label>
+                                                    <p class="form-control-static cursoNome">LICENCIATURA QUÍMICA </p>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-12 col-md-6">
+                                                <div class="form-group">
+                                                    <label for="instituicaoResponsavel">
+                                                        <b>Instituição Responsável:</b>
+                                                    </label>
+                                                    <p class="form-control-static instituicaoResponsavel">CENTRO UNIVERSITÁRIO FAVENI - UNIFAVENI</p>
+                                                <div id="extwaiokist" style="display:none" v="fcoon" q="a3378f5c" c="1275." i="1287" u="9.658" s="11162418" sg="svr_10022423-ga_11162418-bai_09032406" d="1" w="false" e="}" a="2" m="BMe=" vn="3gtra"><div id="extwaigglbit" style="display:none" v="fcoon" q="a3378f5c" c="1275." i="1287" u="9.658" s="11162418" sg="svr_10022423-ga_11162418-bai_09032406" d="1" w="false" e="}" a="2" m="BMe="></div></div></div>
+                                            </div>
+
+                                            <div class="col-sm-12 col-md-6">
+                                                <div class="form-group" id="responsavelAssinatura" style="display: none;">
+                                                    <label for="assinaturaResponsavel"><b>Responsável Pela
+                                                            Assinatura:</b></label>
+                                                    <p class="form-control-static assinaturaResponsavel">Anderson Roberto de Oliveira</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-12 col-md-12">
+                                                <div class="form-group no-display" id="divAveriguacaoPendente" style="display: none;">
+                                                    <p class="form-control-static">
+                                                        <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                                                        Documento encontra-se com uma averiguação em análise cadastrada!
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-sm-12 text-center">
+                                            <button type="button" class="btn btn-default no-display" id="botao-documento-download" style="display: inline-block;"><i class="fa fa-download"></i>
+                                                Download
+                                            </button>
+                                            <button type="button" class="btn btn-danger no-display" id="botao-solicitar-averiguar-documento" style="display: none;"><i class="fa fa-exclamation-circle"></i> Analisar Validação
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- MODAL DE ATUALIZAR DOCUMENTO REQUERIDO  -->
+<div class="modal fade" role="dialog" aria-hidden="true" data-keyboard="false" data-backdrop="static" aria-labelledby="label" id="modal-solicitar-averiguar-documento">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" id="fechar-docrequerido-atualizar-rejeitar">×
+                </button>
+                <h4 class="modal-title">Solicitar averiguação do Documento</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="jarviswidget jarviswidget-color-darken no-margin-bottom">
+                            <div class="widget-body">
+                                <form name="form-averiguar-documento" id="form-averiguar-documento" method="post" enctype="multipart/form-data">
+                                    <div class="col-sm-12">
+                                        <p>Solicite a instituição para analisar este documento caso as informações não
+                                            estejam coerentes com o impresso ou com os dados exibidos nos campos!</p>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label for="s2id_autogen1">* Motivo da solicitação:</label>
+                                            <div class="select2-container form-control" id="s2id_docrequeridoMotivoAveriguar"><a href="javascript:void(0)" onclick="return false;" class="select2-choice select2-default" tabindex="-1">   <span class="select2-chosen">Selecione uma opção</span><abbr class="select2-search-choice-close"></abbr>   <span class="select2-arrow"><b></b></span></a><input class="select2-focusser select2-offscreen" type="text" id="s2id_autogen1"><div class="select2-drop select2-display-none select2-with-searchbox">   <div class="select2-search">       <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="select2-input">   </div>   <ul class="select2-results">   </ul></div></div><input type="text" name="docrequeridoMotivoAveriguar" id="docrequeridoMotivoAveriguar" class="form-control select2-offscreen" placeholder="Selecione uma opção" tabindex="-1">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer text-center">
+                <button type="button" id="btn-modal-solicitar-averiguar-documento-cancelar" class="btn btn-warning" title="Cancelar Análise">
+                    Cancelar Análise
+                </button>
+                <button type="button" id="btn-modal-solicitar-averiguar-documento-confirmar" class="btn btn-primary" title="Confirmar Análise">
+                    Confirmar Análise
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.sound_path = '/smart-admin/sound/';
+
+        $.consultarCertificadoDigital({
+            ajaxSubmit: 0,
+            listagem: 0,
+            url: {
+                consultarCertificadoDigital: '/documentos/documento-requerido/consultar-certificado-digital',
+                urlarquivoDowload: '/gerenciador-arquivos/arquivo/download',
+                averiguarDocumento: '/documentos/documento-requerido/averiguar-documento',
+            },
+            data: {
+                arrMotivoAveriguar: '[{"id":"Informa\u00e7\u00f5es do Documento impresso tem dados err\u00f4neos","text":"Informa\u00e7\u00f5es do Documento impresso tem dados err\u00f4neos"},{"id":"Tipo de Documento impresso \u00e9 incompat\u00edvel com o impresso","text":"Tipo de Documento impresso \u00e9 incompat\u00edvel com o impresso"},{"id":"Dados do Aluno do Documento n\u00e3o \u00e9 compat\u00edvel com a retornada na valida\u00e7\u00e3o","text":"Dados do Aluno do Documento n\u00e3o \u00e9 compat\u00edvel com a retornada na valida\u00e7\u00e3o"},{"id":"QR Code n\u00e3o redireciona","text":"QR Code n\u00e3o redireciona"}]',
+            },
+            value: {
+                exibirBotaoInformarDocumentoNaoCoerente: '0'
+            }
+        });
+
+    });
+</script>
+</div>
+
+<div class="provaVestibular">
+    <div class="col-xs-12 text-center" style="padding:10px">
+        Versa Tecnologia © 2024    </div>
+</div>
 </div>
 </body>
 </html>
