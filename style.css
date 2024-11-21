@@ -1,5 +1,4 @@
-/* Estilos gerais */
-* {
+html {
     font-family: sans-serif;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
@@ -207,6 +206,43 @@ td, th {
     }
 
     img {
-        max-width: 100%;
+        max-width: 100% !important;
+    }
+
+    h2, h3, p {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2, h3 {
+        page-break-after: avoid;
+    }
+
+    select {
+        background: #fff !important;
+    }
+
+    .navbar {
+        display: none;
+    }
+
+    .table td, .table th {
+        background-color: #fff !important;
+    }
+
+    .btn > .caret, .dropup > .btn > .caret {
+        border-top-color: #000 !important;
+    }
+
+    .label {
+        border: 1px solid #000;
+    }
+
+    .table {
+        border-collapse: collapse !important;
+    }
+
+    .table-bordered td, .table-bordered th {
+        border: 1px solid #ddd !important;
     }
 }
