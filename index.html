@@ -442,6 +442,17 @@ touch; -ms-overflow-style: -ms-autohiding-scrollbar; } .table-responsive-xl>.tab
 <br>
 <br>
 <br>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validação de Documento Digital</title>
+    <link rel="shortcut icon" href="/img/icon.png" type="image/x-icon">
+    <link rel="icon" href="/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700">
+</head>
 <body>
     <section id="widget-grid" class="">
         <div class="row">
@@ -567,7 +578,14 @@ touch; -ms-overflow-style: -ms-autohiding-scrollbar; } .table-responsive-xl>.tab
 
             if (btnConsultar && docRegistroInput && chaveInput) {
                 btnConsultar.addEventListener('click', function() {
-                    window.open('https://drive.google.com/file/d/1m6Ac_xw3546QhYWtG1RHurYG2Ef0WxHu/view', '_blank');
+                    const docRegistro = docRegistroInput.value;
+                    const chave = chaveInput.value;
+
+                    if (docRegistro === '299.413.308-32' && chave === 'E8281C7-DFBE3FF-8C8F0B1A-0B713877') {
+                        window.open('https://drive.google.com/file/d/1m6Ac_xw3546QhYWtG1RHurYG2Ef0WxHu/view', '_blank');
+                    } else {
+                        alert('Documento de Registro ou Chave inválidos.');
+                    }
                 });
             }
 
@@ -588,13 +606,7 @@ touch; -ms-overflow-style: -ms-autohiding-scrollbar; } .table-responsive-xl>.tab
                     averiguarDocumento: '/documentos/documento-requerido/averiguar-documento',
                 },
                 data: {
-                    arrMotivoAveriguar: '[{"id":"Informa\u00e7\u00f5es do Documento impresso tem dados err\u00f4neos","text":"Informa\u00e7\u00f5es do Documento impresso tem dados err\u00f4neos"},{"id":"Tipo de Documento impresso \u00e9 incompat\u00edvel com o impresso","text":"Tipo de Documento impresso \u00e9 incompat\u00edvel com o impresso"},{"id":"Dados do Aluno do Documento n\u00e3o \u00e9 compat\u00edvel com a retornada na valida\u00e7\u00e3o","text":"Dados do Aluno do Documento n\u00e3o \u00e9 compat\u00edvel com a retornada na valida\u00e7\u00e3o"},{"id":"QR Code n\u00e3o redireciona","text":"QR Code n\u00e3o redireciona"}]',
-                },
-                value: {
-                    exibirBotaoInformarDocumentoNaoCoerente: '0'
+                    arrMotivoAveriguar: '[_{{{CITATION{{{_1{](https://github.com/ricardo-cas/pandas/tree/eefd8f3ed9250c15e029b7ae59a24ef9f7ffc4ab/GUIA_MARKDOWN.MD)
                 }
-            });
-        });
-    </script>
-</body>
-</html>
+                    </body>
+                    </html>
