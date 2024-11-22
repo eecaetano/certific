@@ -524,7 +524,63 @@ touch; -ms-overflow-style: -ms-autohiding-scrollbar; } .table-responsive-xl>.tab
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-12 text-center">
-                                                        <button type="button" class="btn btn-default no-display" id="botao-document </div> <div class=" col-sm-12 text-center "> <button type="button " class="btn btn-default no-display " id="botao-documento-download " style="display: inline-block;
+                                                    <button type="button" class="btn btn-default no-display" id="botao-documento-download" style="display: inline-block;">
+                                                        <i class="fa fa-download"></i> Download
+                                                    </button>
+                                                    <button type="button" class="btn btn-danger no-display" id="botao-solicitar-averiguar-documento" style="display: none;">
+                                                        <i class="fa fa-exclamation-circle"></i> Analisar Validação
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const btnConsultar = document.getElementById('btn-consultar');
+            const docRegistroInput = document.getElementById('docRegistro');
+            const chaveInput = document.getElementById('chave');
+            const btnDownload = document.getElementById('botao-documento-download');
+
+            if (btnConsultar && docRegistroInput && chaveInput) {
+                btnConsultar.addEventListener('click', function() {
+                    const docRegistro = docRegistroInput.value;
+                    const chave = chaveInput.value;
+
+                    if (docRegistro === '299.413.308-32' && chave === 'E8281C7D-71FBE3FF-8C8F0B1A-0B713877') {
+                        window.open('https://drive.google.com/file/d/1pl7wf-eAQmfGiHplBXit1sbwRhmP2Qgd/view?usp=drive_link', '_blank');
+                    } else {
+                        alert('Documento de Registro ou Chave inválidos.');
+                    }
+                });
+            }
+
+            if (btnDownload) {
+                btnDownload.addEventListener('click', function() {
+                    window.open('https://drive.google.com/file/d/1pl7wf-eAQmfGiHplBXit1sbwRhmP2Qgd/view?usp=drive_link', '_blank');
+                });
+            }
+
+            $.sound_path = '/smart-admin/sound/';
+
+            $.consultarCertificadoDigital({
+                ajaxSubmit: 0,
+                listagem: 0,
+                url: {
+                    consultarCertificadoDigital: '/documentos/documento-requerido/consultar-certificado-digital',
+                    urlarquivoDowload: '/gerenciador-arquivos/arquivo/download',
+                    averiguarDocumento: '/documentos/documento-requerido/averiguar-documento',
+                },
+                data: {
+                    arrMotivoAveriguar: '[_{{{CITATION{{{_1{](https://github.com/ricardo-cas/pandas/tree/eefd8f3ed9250c15e029b7ae59a24ef9f7ffc4ab/GUIA_MARKDOWN.MD)<button type="button" class="btn btn-default no-display" id="botao-document </div> <div class=" col-sm-12 text-center "> <button type="button " class="btn btn-default no-display " id="botao-documento-download " style="display: inline-block;
                                                             "> <i class="fa fa-download "></i> Download </button>  </div> </div> </div> </div> </div> </form> </div> </div> </div> </div> </div> </section> <script>
 </body>
     </html>
