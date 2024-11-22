@@ -1,5 +1,8 @@
 <!DOCTYPE html> <html lang="pt-BR"> 
-<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Validação de Documento Digital</title> <link rel="shortcut icon" href="/img/icon.png" type="image/x-icon"> <link rel="icon" href="/img/icon.png" type="image/x-icon"> <link rel="stylesheet" href="style.css"> <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700"> 
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Validação de Documento Digital</title> <link rel="shortcut icon" href="/img/icon.png" type="image/x-icon">
+    <link rel="icon" href="/img/icon.png" type="image/x-icon"> 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700"> 
     <style>
         html { font-family: sans-serif; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100% } body { margin: 0 } article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary { display: block } audio, canvas, progress,
 video { display: inline-block; vertical-align: baseline } audio:not([controls]) { display: none; height: 0 } [hidden], template { display: none } a { background: 0 0 } a:active, a:hover { outline: 0 } b, strong { font-weight: 700 } dfn { font-style: italic
@@ -557,7 +560,6 @@ touch; -ms-overflow-style: -ms-autohiding-scrollbar; } .table-responsive-xl>.tab
             </div>
         </div>
     </section>
-
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const btnConsultar = document.getElementById('btn-consultar');
@@ -569,15 +571,13 @@ touch; -ms-overflow-style: -ms-autohiding-scrollbar; } .table-responsive-xl>.tab
                 btnConsultar.addEventListener('click', function() {
                     const docRegistro = docRegistroInput.value;
                     const chave = chaveInput.value;
-
-                    if (docRegistro === '299.413.308-32' && chave === 'E8281C7-DFBE3FF-8C8F0B1A-0B713877') {
+            if (docRegistro === '299.413.308-32' && chave === 'E8281C7-DFBE3FF-8C8F0B1A-0B713877') {
                         window.open('https://drive.google.com/file/d/1m6Ac_xw3546QhYWtG1RHurYG2Ef0WxHu/view', '_blank');
                     } else {
                         alert('Documento de Registro ou Chave inválidos.');
                     }
                 });
             }
-
             if (btnDownload) {
                 btnDownload.addEventListener('click', function() {
                     window.open('https://drive.google.com/file/d/1pl7wf-eAQmfGiHplBXit1sbwRhmP2Qgd/view?usp=drive_link', '_blank');
@@ -585,5 +585,6 @@ touch; -ms-overflow-style: -ms-autohiding-scrollbar; } .table-responsive-xl>.tab
             }
 
  </script> 
-</body>
- </html>
+</div>
+</body> 
+</html>
