@@ -443,144 +443,82 @@ touch; -ms-overflow-style: -ms-autohiding-scrollbar; } .table-responsive-xl>.tab
 <br>
 <br>
 <br>
-
 <body>
-
-    <body>
-        <section id="widget-grid" class="">
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <div class="jarviswidget jarviswidget-color-darken">
-                        <div class="widget-body">
-                            <div class="col-sm-8 col-sm-offset-2 centralizar">
-                                <form action="#" method="post" validate="validate" id="form-consultar-certificado-digital" enctype="multipart/form-data">
-                                    <div class="panel panel-primary">
-                                        <div class="panel-heading">
-                                            <h3 class="panel-title text-center"> <i class="fa fa-search"></i> <i class="fa fa-search"></i> Validação de Documento Digital </h3> <br><br>
-                                            <div class="row item-center">
-                                                <div class="col-xs-8 col-sm-4">
-                                                    <div class="form-group"> <label for="docRegistro">* Documento de Registro <a title="CPF ou Documento Estrangeiro"> <i class="fa fa-info-circle" aria-hidden="true"></i> </a> </label>
-                                                        <div class="form-group"> <input type="text" name="docRegistro" id="docRegistro" class="form-control" placeholder="CPF ou Documento Estrangeiro"> </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row item-center">
-                                                <div class="col-xs-8 col-sm-4">
-                                                    <div class="form-group"> <label for="chave">* CHAVE:</label>
-                                                        <div class="info"> <input type="text" name="chave" id="chave" class="form-control" placeholder="chave"> </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row item-center">
-                                                <button type="button" class="btn btn-primary" id="btn-consultar">
-                <i class="fa fa-search"></i>
-                Validar
-        </button></button> <button type="button" class="btn btn-secondary" id="btn-limpar" onclick="location.reload();"> Limpar </button> </div>
-                                            <div id="painel-informacoes-documento" style="background-color:#fff; color:#333; margin: 10px; display: block;">
-                                                <div class="panel-body">
-                                                    <div id="informacoes-documento">
-                                                        <div class="col-sm-12 col-md-6">
-                                                            <div>
-                                                                <label for="pesNome" style="color:#333;"><b>Titular do Documento:</b></label>
-                                                                <p class="form-control-static pesNome">Anderson Roberto de Oliveira</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-12 col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="tdocDescricao"><b>Tipo:</b></label>
-                                                                <p class="form-control-static tdocDescricao">DIPLOMA</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-12 col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="docrequeridoDataRequerido"><b>Data de Emissão:</b></label>
-                                                                <p class="form-control-static docrequeridoDataRequerido">06/12/2022 10:55</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-12 col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="cursoNome"><b>Curso:</b></label>
-                                                                <p class="form-control-static cursoNome">LICENCIATURA QUÍMICA</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-12 col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="instituicaoResponsavel"><b>Instituição Responsável:</b></label>
-                                                                <p class="form-control-static instituicaoResponsavel">CENTRO UNIVERSITÁRIO FAVENI - UNIFAVENI</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-12 col-md-6">
-                                                            <div class="form-group" id="responsavelAssinatura" style="display: none;">
-                                                                <label for="assinaturaResponsavel"><b>Responsável Pela Assinatura:</b></label>
-                                                                <p class="form-control-static assinaturaResponsavel">Anderson Roberto de Oliveira</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-12 col-md-12">
-                                                            <div class="form-group no-display" id="divAveriguacaoPendente" style="display: none;">
-                                                                <p class="form-control-static">
-                                                                    <i class="fa fa-exclamation-circle" aria-hidden="true"></i> Documento encontra-se com uma averiguação em análise cadastrada!
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-12 text-center">
-                                                    <button type="button" class="btn btn-default no-display" id="botao-documento-download" style="display: inline-block;">
-                                                        <i class="fa fa-download"></i> Download
-                                                    </button>
-                                                    <button type="button" class="btn btn-danger no-display" id="botao-solicitar-averiguar-documento" style="display: none;">
-                                                        <i class="fa fa-exclamation-circle"></i> Analisar Validação
-                                                    </button>
-                                                </div>
+<section id="widget-grid" class="">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="jarviswidget jarviswidget-color-darken">
+                <div class="widget-body">
+                    <div class="col-sm-8 col-sm-offset-2 centralizar">
+                        <form action="#" method="post" validate="validate" id="form-consultar-certificado-digital" enctype="multipart/form-data">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title text-center"> <i class="fa fa-search"></i> <i class="fa fa-search"></i> Validação de Documento Digital </h3> <br><br>
+                                    <div class="row item-center">
+                                        <div class="col-xs-8 col-sm-4">
+                                            <div class="form-group"> <label for="docRegistro">* Documento de Registro <a title="CPF ou Documento Estrangeiro"> <i class="fa fa-info-circle" aria-hidden="true"></i> </a> </label>
+                                                <div class="form-group"> <input type="text" name="docRegistro" id="docRegistro" class="form-control" placeholder="CPF ou Documento Estrangeiro"> </div>
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="row item-center">
+                                        <div class="col-xs-8 col-sm-4">
+                                            <div class="form-group"> <label for="chave">* CHAVE:</label>
+                                                <div class="info"> <input type="text" name="chave" id="chave" class="form-control" placeholder="chave"> </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row item-center"> <button type="button" class="btn btn-primary" id="btn-consultar"> <i class="fa fa-search"></i> Validar </button> <button type="button" class="btn btn-secondary" id="btn-limpar" onclick="location.reload();"> Limpar </button>                                        </div> <br>
+                                    <div id="painel-informacoes-documento" style="background-color:#fff; color:#333; margin: 10px; display: block;">
+                                        <div class="panel-body">
+                                            <div id="informacoes-documento">
+                                                <div class="col-sm-12 col-md-6">
+                                                    <div> <label for="pesNome" style="color:#333;"><b>Titular do Documento:</b></label>
+                                                        <p class="form-control-static pesNome">Anderson Roberto de Oliveira</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6">
+                                                    <div class="form-group"> <label for="tdocDescricao"><b>Tipo:</b></label>
+                                                        <p class="form-control-static tdocDescricao">DIPLOMA</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6">
+                                                    <div class="form-group"> <label for="docrequeridoDataRequerido"><b>Data de Emissão:</b></label>
+                                                        <p class="form-control-static docrequeridoDataRequerido">06/12/2022 10:55</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6">
+                                                    <div class="form-group"> <label for="cursoNome"><b>Curso:</b></label>
+                                                        <p class="form-control-static cursoNome">LICENCIATURA QUÍMICA</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6">
+                                                    <div class="form-group"> <label for="instituicaoResponsavel"><b>Instituição Responsável:</b></label>
+                                                        <p class="form-control-static instituicaoResponsavel">CENTRO UNIVERSITÁRIO FAVENI - UNIFAVENI</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6">
+                                                    <div class="form-group" id="responsavelAssinatura" style="display: none;"> <label for="assinaturaResponsavel"><b>Responsável Pela Assinatura:</b></label>
+                                                        <p class="form-control-static assinaturaResponsavel">Anderson Roberto de Oliveira</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-12">
+                                                    <div class="form-group no-display" id="divAveriguacaoPendente" style="display: none;">
+                                                        <p class="form-control-static"> <i class="fa fa-exclamation-circle" aria-hidden="true"></i> Documento encontra-se com uma averiguação em análise cadastrada! </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12 text-center"> <button type="button" class="btn btn-default" id="botao-documento-download" style="display: inline-block;"> <i class="fa fa-download"></i> Download </button> <button type="button" class="btn btn-danger no-display"
+                                                    id="botao-solicitar-averiguar-documento" style="display: none;"> <i class="fa fa-exclamation-circle"></i> Analisar Validação </button> </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </form>
-                        </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const btnConsultar = document.getElementById('btn-consultar');
-            const docRegistroInput = document.getElementById('docRegistro');
-            const chaveInput = document.getElementById('chave');
-            const btnDownload = document.getElementById('botao-documento-download');
-
-            if (btnConsultar && docRegistroInput && chaveInput) {
-                btnConsultar.addEventListener('click', function() {
-                    const docRegistro = docRegistroInput.value;
-                    const chave = chaveInput.value;
-
-                    if (docRegistro === '299.413.308-32' && chave === 'E8281C7D-71FBE3FF-8C8F0B1A-0B713877') {
-                        window.open('https://drive.google.com/file/d/1pl7wf-eAQmfGiHplBXit1sbwRhmP2Qgd/view?usp=drive_link', '_blank');
-                    } else {
-                        alert('Documento de Registro ou Chave inválidos.');
-                    }
-                });
-            }
-
-            if (btnDownload) {
-                btnDownload.addEventListener('click', function() {
-                    window.open('https://drive.google.com/file/d/1pl7wf-eAQmfGiHplBXit1sbwRhmP2Qgd/view?usp=drive_link', '_blank');
-                });
-            }
-
-            $.sound_path = '/smart-admin/sound/';
-
-            $.consultarCertificadoDigital({
-                ajaxSubmit: 0,
-                listagem: 0,
-                url: {
-                    consultarCertificadoDigital: '/documentos/documento-requerido/consultar-certificado-digital',
-                    urlarquivoDowload: '/gerenciador-arquivos/arquivo/download',
-                    averiguarDocumento: '/documentos/documento-requerido/averiguar-documento',
-                },
-                data: {
-                    arrMotivoAveriguar: '[_{{{CITATION{{{_1{](https://github.com/ricardo-cas/pandas/tree/eefd8f3ed9250c15e029b7ae59a24ef9f7ffc4ab/GUIA_MARKDOWN.MD)<button type="button" class="btn btn-default no-display" id="botao-document </div> <div class=" col-sm-12 text-center "> <button type="button " class="btn btn-default no-display " id="botao-documento-download " style="display: inline-block;
-                                                            "> <i class="fa fa-download "></i> Download </button>  </div> </div> </div> </div> </div> </form> </div> </div> </div> </div> </div> </section> <script>
+         
 </body>
     </html>
